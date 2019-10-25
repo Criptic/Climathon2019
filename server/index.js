@@ -1,9 +1,9 @@
-const express = require('express');
-const firebase = require('firebase');
-const cors = require('cors');
-const bodyParser = require('body-parser');
+const express = require("express");
+const firebase = require("firebase");
+const cors = require("cors");
+const bodyParser = require("body-parser");
 
-const keys = require('./keys');
+const keys = require("./keys");
 
 // Initialize Firebase
 firebase.initializeApp(keys.firebaseConfig);
@@ -15,16 +15,16 @@ app.use(cors());
 app.use(bodyParser());
 
 function getTicketById(ticketId) {
-    const ticket = db.ref(`/tickets/${ticketId}`).once(
-        'value',
-        snapshot => {
-            return snapshot.val();
-        },
-        err => console.log(err)
-    );
+  const ticket = db.ref(`/tickets/${ticketId}`).once(
+    "value",
+    snapshot => {
+      return snapshot.val();
+    },
+    err => console.log(err)
+  );
 
-    return ticket;
+  return ticket;
 }
 
 app.listen(5000);
-getTicketById('0000001');
+getTicketById("0000001");
