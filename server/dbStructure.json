@@ -1,0 +1,15 @@
+{
+    "tickets": {
+        "0000001": {
+            "complaint": "",
+            "customerId": 0,
+            "incidentCategory": 0,
+            "status": 0,
+            "tags": "",
+            "timeResolved": "2019-...",
+            "timeSubmitted": "2019-...",
+            "vehicleId": 0,
+            "workerId": 0
+        }
+    }
+}
