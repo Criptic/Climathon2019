@@ -11,5 +11,25 @@
             "vehicleId": 0,
             "workerId": 0
         }
+    },
+    "incidentCategroy": {
+        "0000001": {
+            "incidentText": ""
+        }
+    },
+    "customers": {
+        "0000001": {
+            "name": ""
+        }
+    },
+    "status": {
+        "0000001": {
+            "statusText": ""
+        }
+    },
+    "workers": {
+        "0000001": {
+            "name": ""
+        }
     }
 }
