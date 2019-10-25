@@ -1,35 +1,41 @@
 {
-    "tickets": {
-        "0000001": {
-            "complaint": "",
-            "customerId": 0,
-            "incidentCategory": 0,
-            "status": 0,
-            "tags": "",
-            "timeResolved": "2019-...",
-            "timeSubmitted": "2019-...",
-            "vehicleId": 0,
-            "workerId": 0
-        }
-    },
-    "incidentCategroy": {
-        "0000001": {
-            "incidentText": ""
-        }
-    },
-    "customers": {
-        "0000001": {
-            "name": ""
-        }
-    },
-    "status": {
-        "0000001": {
-            "statusText": ""
-        }
-    },
-    "workers": {
-        "0000001": {
-            "name": ""
-        }
+  "customers": {
+    "0000001": {
+      "name": ""
     }
+  },
+  "incidentCategroy": {
+    "0000001": {
+      "incidentText": ""
+    }
+  },
+  "status": {
+    "0000001": {
+      "statusText": ""
+    }
+  },
+  "tickets": {
+    "0000001": {
+      "complaint": "",
+      "customerId": 0,
+      "incidentCategory": 0,
+      "status": 0,
+      "tags": "",
+      "timeResolved": "2019-...",
+      "timeSubmitted": "2019-...",
+      "vehicleId": 0,
+      "workerId": 0
+    }
+  },
+  "vehicles": {
+    "0000001": {
+      "modelNumber": 1,
+      "constructionDate": 1531926174
+    }
+  },
+  "workers": {
+    "0000001": {
+      "name": ""
+    }
+  }
 }

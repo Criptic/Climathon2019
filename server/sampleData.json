@@ -1,0 +1,211 @@
+{
+  "tickets": {
+    "0000001": {
+      "complaint": "Tür defekt",
+      "customerId": 1,
+      "incidentCategory": 1,
+      "status": 1,
+      "timeSubmitted": 1569455265,
+      "vehicleId": 2,
+      "workerId": 2
+    },
+    "0000002": {
+      "complaint": "Heizung defekt",
+      "customerId": 2,
+      "incidentCategory": 1,
+      "status": 2,
+      "tags": {
+        "0": "Heizung",
+        "1": "Wärmepumpe",
+        "2": "#4711"
+      },
+      "timeResolved": 1549939352,
+      "timeSubmitted": 1549926174,
+      "vehicleId": 1,
+      "workerId": 5
+    },
+    "0000003": {
+      "complaint": "Sitzpolster zerrissen",
+      "customerId": 3,
+      "incidentCategory": 1,
+      "status": 2,
+      "tags": {
+        "0": "Sitz",
+        "1": "Klappsitz"
+      },
+      "timeResolved": 1562377357,
+      "timeSubmitted": 1562343871,
+      "vehicleId": 3,
+      "workerId": 4
+    },
+    "0000004": {
+      "complaint": "Bahn randvoll",
+      "customerId": 4,
+      "incidentCategory": 4,
+      "status": 1,
+      "timeSubmitted": 1549094494,
+      "vehicleId": 2,
+      "workerId": 7
+    },
+    "0000005": {
+      "complaint": "Heizung defekt",
+      "customerId": 5,
+      "incidentCategory": 1,
+      "status": 2,
+      "tags": {
+        "0": "Heizung",
+        "1": "Wärmetauscher",
+        "2": "#42"
+      },
+      "timeResolved": 1550447672,
+      "timeSubmitted": 1550384737,
+      "vehicleId": 1,
+      "workerId": 5
+    },
+    "0000006": {
+      "complaint": "Heizung defekt",
+      "customerId": 6,
+      "incidentCategory": 1,
+      "status": 2,
+      "tags": {
+        "0": "Heizung",
+        "1": "Stromzufuhr",
+        "2": "#23"
+      },
+      "timeResolved": 1551485554,
+      "timeSubmitted": 1551479698,
+      "vehicleId": 1,
+      "workerId": 5
+    },
+    "0000007": {
+      "complaint": "Heizung defekt",
+      "customerId": 7,
+      "incidentCategory": 1,
+      "status": 2,
+      "tags": {
+        "0": "Heizung",
+        "1": "Abluft",
+        "2": "#1337"
+      },
+      "timeResolved": 1552360552,
+      "timeSubmitted": 1552350270,
+      "vehicleId": 1,
+      "workerId": 5
+    },
+    "0000008": {
+      "complaint": "Heizung defekt",
+      "customerId": 8,
+      "incidentCategory": 1,
+      "status": 2,
+      "tags": {
+        "0": "Heizung",
+        "1": "Abluft",
+        "2": "#1337"
+      },
+      "timeResolved": 1553212472,
+      "timeSubmitted": 1553194951,
+      "vehicleId": 1,
+      "workerId": 5
+    }
+  },
+  "incidentCategroy": {
+    "0000001": {
+      "incidentText": "Technische Störung"
+    },
+    "0000002": {
+      "incidentText": "Verschmutzung"
+    },
+    "0000003": {
+      "incidentText": "Verspätung"
+    },
+    "0000004": {
+      "incidentText": "Überfüllung"
+    },
+    "0000005": {
+      "incidentText": "Anschluss"
+    },
+    "0000006": {
+      "incidentText": "Sicherheit"
+    },
+    "0000007": {
+      "incidentText": "Personal"
+    },
+    "0000008": {
+      "incidentText": "Fahrgastinformation"
+    },
+    "9999999": {
+      "incidentText": "Sonstiges"
+    }
+  },
+  "customers": {
+    "0000001": {
+      "name": "Mary Public"
+    },
+    "0000002": {
+      "name": "Hans Bahnfahrer"
+    },
+    "0000003": {
+      "name": "Hacker Stolz"
+    },
+    "0000004": {
+      "name": "Max Mustermann"
+    },
+    "0000005": {
+      "name": "David Default"
+    },
+    "0000006": {
+      "name": "Marvin Messbar"
+    }
+  },
+  "status": {
+    "0000001": {
+      "statusText": "Offen"
+    },
+    "0000002": {
+      "statusText": "Erledigt"
+    }
+  },
+  "vehicles": {
+    "0000001": {
+      "modelNumber": 1,
+      "constructionDate": 1531926174
+    },
+    "0000002": {
+      "modelNumber": 2,
+      "constructionDate": 1548405265
+    },
+    "0000003": {
+      "modelNumber": 3,
+      "constructionDate": 1562157322
+    }
+  },
+  "workers": {
+    "0000001": {
+      "name": "Bob Bauarbeiter"
+    },
+    "0000002": {
+      "name": "Martina Mechanikerin"
+    },
+    "0000003": {
+      "name": "Emil Elektriker"
+    },
+    "0000004": {
+      "name": "Ines Innenausstatterin"
+    },
+    "0000005": {
+      "name": "Harald Heizungsbauer"
+    },
+    "0000006": {
+      "name": "Stefan Stellwerkstechniker"
+    },
+    "0000007": {
+      "name": "Luise Leitstelle"
+    },
+    "0000008": {
+      "name": "Petra Personal"
+    },
+    "0000009": {
+      "name": "Rudi Reinigungskraft"
+    }
+  }
+}
