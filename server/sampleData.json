@@ -145,7 +145,7 @@
       "workerId": "5"
     }
   },
-  "incidentCategroy": {
+  "incidentCategory": {
     "1": {
       "incidentText": "Technische Störung"
     },
