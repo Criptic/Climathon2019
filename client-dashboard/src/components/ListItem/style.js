@@ -15,7 +15,7 @@ export const Row = styled.div`
   padding-right: 8px;
   padding-top: 16px;
   padding-bottom: 16px;
-  border-bottom: 1px solid #d6dce7;
+  border-bottom: ${props => props.border && "1px solid #d6dce7"};
 `;
 export const Label = styled.label`
   font-size: 18px;

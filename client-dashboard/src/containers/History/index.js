@@ -17,10 +17,10 @@ export default function History() {
         <CardContainer>
           <CardTitle>Bearbeitete Meldungen</CardTitle>
           <Card style={{ width: "350px" }}>
-            <ListItem></ListItem>
-            <ListItem></ListItem>
-            <ListItem></ListItem>
-            <div style={{ marginBottom: "32px" }}></div>
+            <ListItem checked border label="Tür Defekt - Sensorik" />
+            <ListItem checked border label="Tür Defekt - Glasbruch" />
+            <ListItem checked label="Bremse quietscht" />
+            <div style={{ marginBottom: "8px" }}></div>
           </Card>
         </CardContainer>
         <CardContainer>

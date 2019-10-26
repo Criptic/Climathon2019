@@ -18,10 +18,10 @@ export default function Dashboard() {
         <CardContainer>
           <CardTitle>Offene Meldungen</CardTitle>
           <Card style={{ width: "350px" }}>
-            <ListItem></ListItem>
-            <ListItem></ListItem>
-            <ListItem></ListItem>
-            <div style={{ marginBottom: "32px" }}></div>
+            <ListItem border label="Tür Defekt" />
+            <ListItem border label="Tür Defekt - Senorik" />
+            <ListItem label="Glasbruch - Fahrer" />
+            <div style={{ marginBottom: "8px" }}></div>
           </Card>
         </CardContainer>
         <CardContainer>
