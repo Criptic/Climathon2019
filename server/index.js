@@ -3,6 +3,7 @@ const firebase = require("firebase");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const admin = require("firebase-admin");
+const axios = require("axios");
 
 const keys = require("./keys");
 
@@ -31,8 +32,29 @@ app.get("/createTicket", (req, res) => {
   );
   console.log(req.query);
 });
+
 app.get("/getTickets", async (req, res) => {
   res.send(await getTicketsByCustomerId(req.query.customerId));
+});
+
+app.get("/getNews", async (req, res) => {
+  const news = axios
+    .get(
+      "http://rnv.the-agent-factory.de:8080/easygo2/api/regions/rnv/modules/news",
+      {
+        headers: {
+          RNV_API_TOKEN: "a30n2m3sesqn5ogo8t4nmvgduq",
+          Accept: "application/json",
+        },
+      }
+    )
+    .then(response => {
+      return response.data;
+    })
+    .catch(function(error) {
+      console.log(error);
+    });
+  res.send(await news);
 });
 app.listen(5000);
 
