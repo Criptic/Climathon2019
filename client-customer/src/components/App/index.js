@@ -1,20 +1,14 @@
 import React, { Component } from "react";
-import {
-  Container,
-  Title,
-  Orange,
-  CardTitle,
-  Card,
-  CardContainer,
-  Navbar,
-  NavElement,
-} from "./style";
+import { Navbar, NavElement } from "./style";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { MessageSquare, ThumbsDown, User } from "react-feather";
 
+import Profile from "../Profile";
+import Home from "../Home";
+import Complain from "../Complain";
 import { messaging } from "../../init-fcm";
 
-class App extends Component {
+export default class App extends Component {
   async componentDidMount() {
     Notification.requestPermission()
       .then(async function() {
@@ -29,7 +23,6 @@ class App extends Component {
       console.log(message)
     );
   }
-
   render() {
     return (
       <Router>
@@ -64,7 +57,7 @@ class App extends Component {
               <Complain />
             </Route>
             <Route path="/profile">
-              <Profil />
+              <Profile />
             </Route>
             <Route path="/">
               <Home />
@@ -75,41 +68,3 @@ class App extends Component {
     );
   }
 }
-
-function Home() {
-  return (
-    <Container>
-      <Title>
-        tramn by <Orange>rnv</Orange>
-      </Title>
-
-      <CardContainer>
-        <CardTitle>Technischer Defekt</CardTitle>
-        <Card>Dude... we need to fill this place!</Card>
-      </CardContainer>
-
-      <CardContainer>
-        <CardTitle>Sonstige Meldungen</CardTitle>
-        <Card>Dude... we need to fill this place!</Card>
-      </CardContainer>
-    </Container>
-  );
-}
-
-function Complain() {
-  return (
-    <Container>
-      <h2>Lass es raus</h2>
-    </Container>
-  );
-}
-
-function Profil() {
-  return (
-    <Container>
-      <h2>Profil & Einstellungen</h2>
-    </Container>
-  );
-}
-
-export default App;
