@@ -1,20 +1,12 @@
 import React from "react";
-import {
-  Container,
-  Title,
-  CardContainer,
-  Card,
-  CardTitle,
-  Orange,
-} from "../globals";
+import { Container, CardContainer, Card, CardTitle } from "../globals";
+
+import Title from "../Title";
 
 export default function Home() {
   return (
     <Container>
-      <Title>
-        tramn by <Orange>rnv</Orange>
-      </Title>
-
+      <Title title="tramn by" orange="rnv" />
       <CardContainer>
         <CardTitle>Technischer Defekt</CardTitle>
         <Card>Dude... we need to fill this place!</Card>

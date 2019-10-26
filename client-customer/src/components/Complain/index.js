@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Title, Orange, Card } from "../globals";
+import { Container } from "../globals";
 import {
   BouncyDiv,
   NormalDiv,
@@ -11,6 +11,7 @@ import {
   Anger,
 } from "./style";
 import anger from "../../assets/anger.png";
+import Title from "../Title";
 
 export default class Complain extends React.Component {
   constructor(props) {
@@ -37,9 +38,7 @@ export default class Complain extends React.Component {
   render() {
     return (
       <Container>
-        <Title>
-          lass es <Orange>raus</Orange>
-        </Title>
+        <Title title="lass es" orange="raus" />
         <p style={{ textAlign: "center", marginBottom: "64px" }}>
           Was bedrückt dich? Was regt dich auf? Komm schon! Wir halten das aus!
         </p>
