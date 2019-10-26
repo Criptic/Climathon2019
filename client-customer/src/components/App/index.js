@@ -19,24 +19,12 @@ class App extends Component {
     Notification.requestPermission()
       .then(async function() {
         const token = await messaging.getToken();
-        console.log("Hello 1");
-        console.log(token);
-        console.log("Hello 2");
-      })
-      .catch(function(err) {
-        console.log("Unable to get permission to notify.", err);
-      });
-    /*
-    messaging
-      .requestPermission()
-      .then(async function() {
-        const token = await messaging.getToken();
         console.log(token);
       })
       .catch(function(err) {
         console.log("Unable to get permission to notify.", err);
       });
-      */
+
     navigator.serviceWorker.addEventListener("message", message =>
       console.log(message)
     );
