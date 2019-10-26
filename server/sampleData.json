@@ -2,7 +2,7 @@
   "tickets": {
     "1": {
       "complaint": "Tür defekt",
-      "customerId": "1",
+      "customerId": "11",
       "incidentCategory": "1",
       "status": "1",
       "timeSubmitted": 1569455265,
@@ -137,11 +137,11 @@
     },
     "11": {
       "complaint": "Licht defekt",
-      "customerId": "11",
+      "customerId": "1",
       "incidentCategory": "1",
       "status": "1",
       "timeSubmitted": 1572048136,
-      "vehicleId": "1",
+      "vehicleId": "42069",
       "workerId": "5"
     },
     "12": {
