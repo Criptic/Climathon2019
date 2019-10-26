@@ -1,11 +1,20 @@
 import React, { Component } from "react";
 import QrReader from "react-qr-reader";
 import axios from "axios";
+import { ChevronLeft } from "react-feather";
+import { Link, Redirect } from "react-router-dom";
 
 import { Container } from "../globals";
 
-import Title from "../Title";
-
+import {
+  NavBlocker,
+  BackButton,
+  Heading,
+  InputCard,
+  Button,
+  Select,
+  Input,
+} from "./style";
 class Report extends Component {
   constructor(props) {
     super(props);
@@ -16,6 +25,7 @@ class Report extends Component {
       incidentCategory: 1,
       complaint: "",
       customerId: 1,
+      toHome: false,
     };
 
     this.handleScan = this.handleScan.bind(this);
@@ -55,13 +65,24 @@ class Report extends Component {
           `/createTicket?vehicleId=${this.state.vehicleId}&incidentCategory=${this.state.incidentCategory}&complaint=${this.state.complaint}&customerId=${this.state.customerId}`
         )
         .then(res => console.log(res));
+      this.setState({ toHome: true });
     }
   };
 
   render() {
+    if (this.state.toHome === true) {
+      console.log("hello");
+      return <Redirect to="/" />;
+    }
+
     return (
       <Container>
-        <Title title="tramn by" orange="rnv" />
+        <NavBlocker />
+        <BackButton>
+          <ChevronLeft />
+          <Link to="/">Zurück</Link>
+        </BackButton>
+
         <div style={this.state.qrReaderStyle}>
           <QrReader
             delay={300}
@@ -70,36 +91,42 @@ class Report extends Component {
           />
         </div>
         <p>
-          {this.state.vehicleId
-            ? `Ausgewählte Tram: ${this.state.vehicleId}`
-            : `Keine Tram erkannt`}
+          {this.state.vehicleId ? (
+            <Heading>{`Ausgewählte Tram: ${this.state.vehicleId}`}</Heading>
+          ) : (
+            <Heading>Keine Tram erkannt</Heading>
+          )}
         </p>
         {this.state.vehicleId ? (
-          <>
-            <select
-              name="category"
-              id="incidentCategory"
-              value={this.state.incidentCategory}
-              onChange={this.handleIncidentCategorySelect}
-            >
-              <option value="1">Technische Störung</option>
-              <option value="2">Verschmutzung</option>
-              <option value="3">Verspätung</option>
-              <option value="4">Überfüllung</option>
-              <option value="5">Anschluss</option>
-              <option value="6">Sicherheit</option>
-              <option value="7">Personal</option>
-              <option value="8">Fahrgastinformation</option>
-              <option value="9999999">Sonstiges</option>
-            </select>
-            <input
-              type="text"
-              id="complaint"
-              value={this.state.complaint}
-              onChange={this.handleComplaintChange}
-            />
-            <button onClick={this.handleClick}>Abschicken</button>
-          </>
+          <InputCard>
+            <h2>Sag's uns</h2>
+            <div style={{ display: "flex", flexDirection: "column" }}>
+              <Select
+                name="category"
+                id="incidentCategory"
+                value={this.state.incidentCategory}
+                onChange={this.handleIncidentCategorySelect}
+              >
+                <option value="1">Technische Störung</option>
+                <option value="2">Verschmutzung</option>
+                <option value="3">Verspätung</option>
+                <option value="4">Überfüllung</option>
+                <option value="5">Anschluss</option>
+                <option value="6">Sicherheit</option>
+                <option value="7">Personal</option>
+                <option value="8">Fahrgastinformation</option>
+                <option value="9999999">Sonstiges</option>
+              </Select>
+              <Input
+                type="text"
+                id="complaint"
+                value={this.state.complaint}
+                onChange={this.handleComplaintChange}
+                placeholder="Beschreibe dein Problem"
+              />
+              <Button onClick={this.handleClick}>Ab damit</Button>
+            </div>
+          </InputCard>
         ) : (
           ""
         )}

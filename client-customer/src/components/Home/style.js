@@ -11,6 +11,7 @@ export const ReportCard = styled(Card)`
   background-color: #2f3676;
 
   p {
+    width: 200px;
     font-weight: bold;
     color: ${theme.bg.default};
   }
@@ -21,7 +22,7 @@ export const ReportCard = styled(Card)`
 `;
 export const Human = styled.img`
   border-radius: 12px;
-  width: 100%;
+  width: 120px;
   height: auto;
 `;
 export const Button = styled.button`
