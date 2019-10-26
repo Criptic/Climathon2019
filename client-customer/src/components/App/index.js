@@ -11,6 +11,7 @@ import { MessageSquare, ThumbsDown, User } from "react-feather";
 import Profile from "../Profile";
 import Home from "../Home";
 import Complain from "../Complain";
+import Report from "../Report";
 import { messaging } from "../../init-fcm";
 
 export default class App extends Component {
@@ -70,6 +71,9 @@ export default class App extends Component {
             </Route>
             <Route path="/profile">
               <Profile />
+            </Route>
+            <Route path="/report">
+              <Report />
             </Route>
             <Route path="/">
               <Home />
