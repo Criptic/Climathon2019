@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import {
   Container,
   Title,
@@ -12,49 +12,80 @@ import {
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { MessageSquare, ThumbsDown, User } from "react-feather";
 
-export default function App() {
-  return (
-    <Router>
-      <div>
-        <Navbar>
-          <Link to="/">
-            <NavElement>
-              <MessageSquare />
-              <span>Melden</span>
-            </NavElement>
-          </Link>
+import { messaging } from "../../init-fcm";
 
-          <Link to="/complain">
-            <NavElement>
-              <ThumbsDown />
-              <span>Lass es raus</span>
-            </NavElement>
-          </Link>
+class App extends Component {
+  async componentDidMount() {
+    Notification.requestPermission()
+      .then(async function() {
+        const token = await messaging.getToken();
+        console.log("Hello 1");
+        console.log(token);
+        console.log("Hello 2");
+      })
+      .catch(function(err) {
+        console.log("Unable to get permission to notify.", err);
+      });
+    /*
+    messaging
+      .requestPermission()
+      .then(async function() {
+        const token = await messaging.getToken();
+        console.log(token);
+      })
+      .catch(function(err) {
+        console.log("Unable to get permission to notify.", err);
+      });
+      */
+    navigator.serviceWorker.addEventListener("message", message =>
+      console.log(message)
+    );
+  }
 
-          <Link to="/profile">
-            <NavElement>
-              <User />
-              <span>Profil</span>
-            </NavElement>
-          </Link>
-        </Navbar>
+  render() {
+    return (
+      <Router>
+        <div>
+          <Navbar>
+            <Link to="/">
+              <NavElement>
+                <MessageSquare />
+                <span>Melden</span>
+              </NavElement>
+            </Link>
 
-        {/* A <Switch> looks through its children <Route>s and
+            <Link to="/complain">
+              <NavElement>
+                <ThumbsDown />
+                <span>Lass es raus</span>
+              </NavElement>
+            </Link>
+
+            <Link to="/profile">
+              <NavElement>
+                <User />
+                <span>Profil</span>
+              </NavElement>
+            </Link>
+          </Navbar>
+
+          {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
-        <Switch>
-          <Route path="/complain">
-            <Complain />
-          </Route>
-          <Route path="/profile">
-            <Profil />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch>
-      </div>
-    </Router>
-  );
+          <Switch>
+            <Route path="/complain">
+              <Complain />
+            </Route>
+            <Route path="/profile">
+              <Profil />
+            </Route>
+            <Route path="/">
+              <Home />
+            </Route>
+          </Switch>
+        </div>
+      </Router>
+    );
+  }
 }
 
 function Home() {
@@ -92,3 +123,5 @@ function Profil() {
     </Container>
   );
 }
+
+export default App;
