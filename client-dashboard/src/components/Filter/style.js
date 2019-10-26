@@ -8,6 +8,7 @@ export const Container = styled.div`
   padding-right: 8px;
   padding-left: 8px;
   height: 32px;
+  margin-right: 16px;
 
   display: flex;
   flex-direction: row;
