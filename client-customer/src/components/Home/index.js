@@ -2,8 +2,11 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-import { Container, CardContainer, CardTitle } from "../globals";
+import { ReportCard, Image, Button } from "./style";
+import { Container, CardContainer, CardTitle, Card } from "../globals";
 import Title from "../Title";
+
+import standing from "../../assets/standing.png";
 
 class Home extends Component {
   state = {
@@ -18,18 +21,25 @@ class Home extends Component {
       <Container>
         <Title title="tramn by" orange="rnv" />
         <CardContainer>
-          <CardTitle>
-            <Link to="/report">Störung melden</Link>
-          </CardTitle>
+          <CardTitle>Störung melden</CardTitle>
+          <Link to="/report">
+            <ReportCard>
+              <div>
+                <h2>Dich nervt was?</h2>
+                <p>
+                  Her damit! Nutze den Barcode um dein Problem oder dein
+                  Feedback zu melden!
+                </p>
+                <Button>Go for it!</Button>
+              </div>
+              <Image src={standing} />
+            </ReportCard>
+          </Link>
         </CardContainer>
-        <CardContainer>
-          <CardTitle>
-            <Link to="/reports">Letzte Störungen...</Link>
-          </CardTitle>
-        </CardContainer>
+
         <CardContainer>
           <CardTitle>Aktuelle Störung: {this.state.news.title}</CardTitle>
-          <div>{this.state.news.text}</div>
+          <Card>{this.state.news.text}</Card>
         </CardContainer>
       </Container>
     );

@@ -21,7 +21,7 @@ export const Shadows = {
 
 // global styled components
 export const Container = styled.div`
-  padding: 8px;
+  padding: 16px;
   display: flex;
   flex-direction: column;
 `;
@@ -37,7 +37,7 @@ export const CardContainer = styled.div`
 `;
 export const CardTitle = styled.h2`
   font-size: 20px;
-  font-weight: normal;
+  font-weight: 500;
 `;
 export const Card = styled.div`
     background-color: ${theme.bg.default};
