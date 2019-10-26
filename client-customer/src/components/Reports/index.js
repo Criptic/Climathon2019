@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import axios from "axios";
 
+import { NavBlocker, BackButton } from "./style";
 import { Container } from "../globals";
+import { Link } from "react-router-dom";
+import { ChevronLeft } from "react-feather";
 
 import Title from "../Title";
 
@@ -27,7 +30,11 @@ class Reports extends Component {
   render() {
     return (
       <Container>
-        <Title title="tramn by" orange="rnv" />
+        <NavBlocker />
+        <BackButton>
+          <ChevronLeft />
+          <Link to="/">Zurück</Link>
+        </BackButton>
         <label for="solvedOnlyCheckbox">
           Nur gelöste Tickets
           <input
