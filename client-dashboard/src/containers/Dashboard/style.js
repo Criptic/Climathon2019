@@ -26,3 +26,11 @@ export const HorizontalContainer = styled.div`
   width: 800px;
   margin-top: 96px;
 `;
+
+export const FilterContainer = styled.div`
+  width: 800px;
+  display: flex;
+  flex-direction: row;
+  margin-right: 16px;
+  margin-top: 32px;
+`;

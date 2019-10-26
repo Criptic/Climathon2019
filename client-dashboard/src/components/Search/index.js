@@ -6,7 +6,7 @@ export default function Search() {
   return (
     <SearchBar>
       <SearchContainer>
-        <Input placeholder="type, you fool!" />
+        <Input placeholder="Suche nach Tags, Fahrzeugen oder Themen" />
         <SearchIcon color={"#5C6166"} />
       </SearchContainer>
     </SearchBar>

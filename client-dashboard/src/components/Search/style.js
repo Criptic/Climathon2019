@@ -24,5 +24,6 @@ export const SearchContainer = styled.div`
 
 export const Input = styled.input`
   font-size: 16px;
+  width: 700px;
   border: none;
 `;

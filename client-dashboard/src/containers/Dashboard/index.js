@@ -1,10 +1,17 @@
 import React from "react";
-import { Content, Title, TitleContainer, HorizontalContainer } from "./style";
+import {
+  Content,
+  Title,
+  TitleContainer,
+  HorizontalContainer,
+  FilterContainer,
+} from "./style";
 import { Inbox } from "react-feather";
 import Search from "../../components/Search";
 import ListItem from "../../components/ListItem";
 import { CardTitle, CardContainer, Card } from "../../components/globals";
 import Category from "../../components/Category";
+import Filter from "../../components/Filter";
 
 export default function Dashboard() {
   return (
@@ -14,6 +21,9 @@ export default function Dashboard() {
         <Inbox size={32} color={"#FC642D"} />
       </TitleContainer>
       <Search />
+      <FilterContainer>
+        <Filter text="F228122" />
+      </FilterContainer>
       <HorizontalContainer>
         <CardContainer>
           <CardTitle>Offene Meldungen</CardTitle>
