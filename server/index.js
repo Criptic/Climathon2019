@@ -60,21 +60,15 @@ async function updateTicket(ticketId, ticket) {
 
 app.listen(5000);
 
-async function sendNotificationCustomer(
-  customerId,
-  ticketId,
-  timeSubmitted,
-  timeResolved
-) {
-  var registrationToken =
-    "eC-lJf1iJ2qB15yA8IVBdQ:APA91bGzw6KayKEyPRJNoKTxi_20ZN59R_bSX-nZxEgRNOj3Yc_cVx6QdBKM46B5znsOSprGdjJv252d8A9xZx-YwaIwsPh-HD6ggs1cgi4D60ADmo5iDKPowKfweLPFz20PzxAjkWVP";
-
-  var message = {
-    data: {
-      score: "850",
-      time: "2:45",
-    },
-    token: registrationToken,
+/**
+ *
+ * @param {String} recipientToken token of the device the receive notification
+ * @param {Object} data payload to be sent to device
+ */
+async function sendNotificationToX(recipientToken, data) {
+  const message = {
+    data,
+    token: recipientToken,
   };
 
   // Send a message to the device corresponding to the provided
@@ -91,7 +85,70 @@ async function sendNotificationCustomer(
     });
 }
 
-sendNotificationCustomer(1, 1, 1, 1);
+// criteria = {
+//   type: type,
+//   value: value
+// }
+async function retrieveHistory(criteria) {
+  const { type, value } = criteria;
+  // console.log(type, value);
+
+  return await db
+    // ? FETCH tickets from db
+    .ref(`/tickets`)
+    .once("value")
+    .then(
+      snapshot => {
+        // console.log(snapshot.val());
+        return snapshot.val();
+      },
+      err => console.log(err)
+    )
+    .then(tickets => {
+      // ? FILTER for criteria
+      return Object.entries(tickets).map(ticket => {
+        // check if requested field exists on ticket
+        if (ticket[1][type] !== undefined) {
+          // check if field is an array
+          if (Array.isArray(ticket[1][type])) {
+            // check if field includes requested value
+            if (ticket[1][type].includes(value)) {
+              // console.log(ticket[1]);
+              return ticket[1];
+            }
+          } else {
+            if (ticket[1][type] === value) {
+              // console.log(ticket[1]);
+              return ticket[1];
+            }
+          }
+        }
+      });
+      // console.log(preFilteredTickets);
+    })
+    .then(preFilteredTickets => {
+      // console.log(preFilteredTickets.filter(el => el !== undefined));
+      return preFilteredTickets.filter(el => el !== undefined);
+    });
+
+  // const ticketsAsArray =
+  // Object.entries(tickets).map(ticket => console.log(ticket));
+  // console.log("tickets", tickets);
+}
+
+const criteria = { type: "tags", value: "Heizung" };
+retrieveHistory(criteria);
+
+// const customerToken =
+//   "eC-lJf1iJ2qB15yA8IVBdQ:APA91bGzw6KayKEyPRJNoKTxi_20ZN59R_bSX-nZxEgRNOj3Yc_cVx6QdBKM46B5znsOSprGdjJv252d8A9xZx-YwaIwsPh-HD6ggs1cgi4D60ADmo5iDKPowKfweLPFz20PzxAjkWVP";
+// const customerData = {
+//   customerId: "1",
+//   ticketId: "1",
+//   timeSubmitted: "1",
+//   timeResolved: "1",
+// };
+
+// sendNotificationToX(customerToken, customerData);
 
 /*
 console.log(getOneValueById("tickets", "1"));
