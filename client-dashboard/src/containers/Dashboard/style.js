@@ -12,7 +12,9 @@ export const TitleContainer = styled.div`
   align-items: center;
 `;
 export const Content = styled(Container)`
+  margin-top: 64px;
+  display: flex;
+  flex-direction: column;
   max-width: 800px;
-  justify-conent: center;
-  align-items: center;
+  justify-content: center;
 `;

@@ -1,6 +1,7 @@
 import React from "react";
 import { Content, Title, TitleContainer } from "./style";
 import { Inbox } from "react-feather";
+import Search from "../../components/Search";
 
 export default function Dashboard() {
   return (
@@ -9,6 +10,7 @@ export default function Dashboard() {
         <Title>Inbox</Title>
         <Inbox size={32} color={"#FC642D"} />
       </TitleContainer>
+      <Search />
     </Content>
   );
 }

@@ -4,9 +4,13 @@ import { theme } from "../../components/theme";
 
 export const Container = styled.div`
   padding: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 export const Header = styled.div`
   display: flex;
+  width: 100%;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
