@@ -1,6 +1,14 @@
 import React from "react";
-import {} from "./style";
+import { Content, Title, TitleContainer } from "./style";
+import { Inbox } from "react-feather";
 
 export default function Dashboard() {
-  return <h1>Hi!</h1>;
+  return (
+    <Content>
+      <TitleContainer>
+        <Title>Inbox</Title>
+        <Inbox size={32} color={"#FC642D"} />
+      </TitleContainer>
+    </Content>
+  );
 }
