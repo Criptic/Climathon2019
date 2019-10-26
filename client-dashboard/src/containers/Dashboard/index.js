@@ -73,7 +73,7 @@ export default class Dashboard extends Component {
           onClick={this.handleSearchChange.bind(this)}
         />
         <FilterContainer>
-          <Filter text="Fahrzeug ID: 2" />
+          <Filter text="Fahrzeug ID: 42069" />
           <Filter text="Störung" />
         </FilterContainer>
         <HorizontalContainer>
