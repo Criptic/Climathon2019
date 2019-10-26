@@ -1,20 +1,21 @@
 import React from "react";
 import { Container, Title, Orange, Card } from "../globals";
 import {
+  BouncyDiv,
+  NormalDiv,
   ComplainCard,
   Input,
   Button,
   BottomRow,
   Counter,
   Anger,
-  Content,
 } from "./style";
 import anger from "../../assets/anger.png";
 
 export default class Complain extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { message: "", counter: 0 };
+    this.state = { message: "", counter: 0, animate: false };
 
     // This binding is necessary to make `this` work in the callback
     this.handleChange = this.handleChange.bind(this);
@@ -29,7 +30,8 @@ export default class Complain extends React.Component {
   }
 
   handleSubmit(event) {
-    alert("A name was submitted: " + this.state.message);
+    this.setState({ animate: true });
+    //alert("A name was submitted: " + this.state.message);
     event.preventDefault();
   }
   render() {
@@ -38,7 +40,7 @@ export default class Complain extends React.Component {
         <Title>
           lass es <Orange>raus</Orange>
         </Title>
-        <p>
+        <p style={{ textAlign: "center", marginBottom: "64px" }}>
           Was bedrückt dich? Was regt dich auf? Komm schon! Wir halten das aus!
         </p>
         <ComplainCard>
@@ -52,9 +54,9 @@ export default class Complain extends React.Component {
             <Button onClick={this.handleSubmit}>Abschicken</Button>
           </BottomRow>
         </ComplainCard>
-        <div style={{ textAlign: "center", width: "100%" }}>
+        <NormalDiv>
           <Anger src={anger} />
-        </div>
+        </NormalDiv>
       </Container>
     );
   }

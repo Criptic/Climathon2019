@@ -1,21 +1,30 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { Shadows } from "../globals";
 import { theme } from "../theme";
+import { bounce } from "react-animations";
 
-export const Content = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: stretch;
-  height: 110%;
+// animation
+const bounceAnimation = keyframes`${bounce}`;
+
+export const BouncyDiv = styled.div`
+  animation: 1s ${bounceAnimation};
+  width: 100%;
   text-align: center;
 `;
+
+export const NormalDiv = styled.div`
+  width: 100%;
+  text-align: center;
+`;
+
+// style
 export const ComplainCard = styled.div`
     background-color: ${theme.bg.default};
     border-radius 12px;
     padding: 8px;
     padding-top: 16px;
-
+    margin-left: 16px;
+    margin-right: 16px;
     ${Shadows.default};
 
 
