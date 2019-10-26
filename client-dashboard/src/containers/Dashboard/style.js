@@ -24,4 +24,5 @@ export const HorizontalContainer = styled.div`
   flex-direction: row;
   justify-content: space-between;
   width: 800px;
+  margin-top: 96px;
 `;
