@@ -1,6 +1,11 @@
 import React, { Component } from "react";
-import { Navbar, NavElement } from "./style";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { Navbar } from "./style";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  NavLink,
+} from "react-router-dom";
 import { MessageSquare, ThumbsDown, User } from "react-feather";
 
 import Profile from "../Profile";
@@ -28,26 +33,33 @@ export default class App extends Component {
       <Router>
         <div>
           <Navbar>
-            <Link to="/">
-              <NavElement>
-                <MessageSquare />
-                <span>Melden</span>
-              </NavElement>
-            </Link>
+            <NavLink
+              exact
+              className="navElement"
+              to="/"
+              activeClassName="selected"
+            >
+              <MessageSquare />
+              <span>Melden</span>
+            </NavLink>
 
-            <Link to="/complain">
-              <NavElement>
-                <ThumbsDown />
-                <span>Lass es raus</span>
-              </NavElement>
-            </Link>
+            <NavLink
+              className="navElement"
+              to="/complain"
+              activeClassName="selected"
+            >
+              <ThumbsDown />
+              <span>Lass es raus</span>
+            </NavLink>
 
-            <Link to="/profile">
-              <NavElement>
-                <User />
-                <span>Profil</span>
-              </NavElement>
-            </Link>
+            <NavLink
+              className="navElement"
+              to="/profile"
+              activeClassName="selected"
+            >
+              <User />
+              <span>Profil</span>
+            </NavLink>
           </Navbar>
 
           {/* A <Switch> looks through its children <Route>s and
