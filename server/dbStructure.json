@@ -1,4 +1,24 @@
 {
+  "customers": {
+    "0000001": {
+      "name": ""
+    }
+  },
+  "incidentCategroy": {
+    "0000001": {
+      "incidentText": ""
+    }
+  },
+  "status": {
+    "0000001": {
+      "statusText": ""
+    }
+  },
+  "routes": {
+    "0000001": {
+      "description": ""
+    }
+  },
   "tickets": {
     "0000001": {
       "complaint": "",
@@ -12,19 +32,10 @@
       "workerId": 0
     }
   },
-  "incidentCategroy": {
+  "vehicles": {
     "0000001": {
-      "incidentText": ""
-    }
-  },
-  "customers": {
-    "0000001": {
-      "name": ""
-    }
-  },
-  "status": {
-    "0000001": {
-      "statusText": ""
+      "modelNumber": 1,
+      "constructionDate": 1531926174
     }
   },
   "workers": {
