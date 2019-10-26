@@ -61,3 +61,22 @@ export const CheckboxContainer = styled.div`
   flex-direction: row;
   align-items: center;
 `;
+export const Zero = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  p {
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 32px;
+    color: ${theme.text.tertiary};
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+`;
