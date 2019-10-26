@@ -31,6 +31,7 @@ app.get("/createTicket", (req, res) => {
     req.query.customerId
   );
   console.log(req.query);
+  res.send("Success");
 });
 
 app.get("/getTickets", async (req, res) => {
@@ -44,7 +45,7 @@ app.get("/getCurrentWorkerTickets", async (req, res) => {
 app.get("/updateTicket", (req, res) => {
   updateTicket("11", {
     complaint: "Licht defekt",
-    customerId: "11",
+    customerId: "1",
     incidentCategory: "1",
     status: "2",
     timeSubmitted: 1572048136,
@@ -52,12 +53,14 @@ app.get("/updateTicket", (req, res) => {
     vehicleId: "42096",
     workerId: "5",
   });
-  sendNotificationToX(
-    customerToken,
-    { test: "test" },
-    "Licht defekt behoben",
-    "Vielen Dank für deinen Hinweis!"
-  );
+  setTimeout(x => {
+    sendNotificationToX(
+      customerToken,
+      { test: "test" },
+      "Licht defekt behoben",
+      "Vielen Dank für deinen Hinweis!"
+    );
+  }, 2000);
   res.send("success");
 });
 

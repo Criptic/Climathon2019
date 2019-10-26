@@ -12,6 +12,7 @@ import {
   TitleContainer,
   HorizontalContainer,
   FilterContainer,
+  Zero,
 } from "./style";
 import { Inbox } from "react-feather";
 import Search from "../../components/Search";
@@ -19,6 +20,8 @@ import ListItem from "../../components/ListItem";
 import { CardTitle, CardContainer, Card } from "../../components/globals";
 import Category from "../../components/Category";
 import Filter from "../../components/Filter";
+
+import done from "../../assets/done.png";
 
 export default class Dashboard extends Component {
   constructor(props) {
@@ -28,6 +31,7 @@ export default class Dashboard extends Component {
       workerId: "5",
       tickets: "",
       displayType: "flex",
+      displayZero: "hidden",
     };
     this.handleChecked = this.handleChecked.bind(this);
   }
@@ -52,7 +56,7 @@ export default class Dashboard extends Component {
   }
 
   handleChecked(event) {
-    this.setState({ displayType: "none" });
+    this.setState({ displayType: "none", displayZero: "visible" });
     axios.get("/updateTicket");
   }
 
@@ -69,7 +73,8 @@ export default class Dashboard extends Component {
           onClick={this.handleSearchChange.bind(this)}
         />
         <FilterContainer>
-          <Filter text="F228122" />
+          <Filter text="Fahrzeug ID: 42069" />
+          <Filter text="Störung" />
         </FilterContainer>
         <HorizontalContainer>
           <CardContainer>
@@ -97,21 +102,30 @@ export default class Dashboard extends Component {
                                 type="checkbox"
                                 onChange={this.handleChecked}
                               />
-                              <Label>{`${ticket.complaint} - Fahrzeug-ID: ${ticket.vehicleId}`}</Label>
+                              <Label>{`${ticket.complaint}-Fahrzeug: ${ticket.vehicleId}`}</Label>
                             </CheckboxContainer>
-                            <div title={`Fahrzeug Nr. ` + ticket.vehicleId}>
-                              <Info
-                                size={20}
-                                color={"#5C6166"}
-                                style={{ marginRight: "8px" }}
-                              />
-                            </div>
+                            <Info
+                              size={20}
+                              color={"#5C6166"}
+                              style={{ marginLeft: "32px" }}
+                            />
                           </Row>
                         )}
                       </div>
                     );
                   })
-                : ""}
+                : null}
+            </Card>
+            <Card
+              style={{ width: "350px", visibility: this.state.displayZero }}
+            >
+              <Zero>
+                <img src={done} />
+                <p>
+                  Für heute ist alles erledigt! Gönn dir etwas und genieße den
+                  Tag!
+                </p>
+              </Zero>
             </Card>
           </CardContainer>
           <CardContainer>
