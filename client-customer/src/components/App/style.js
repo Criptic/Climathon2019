@@ -51,3 +51,8 @@ export const Navbar = styled.div`
   justify-content: space-around;
   align-items: center;
 `;
+export const NavElement = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;

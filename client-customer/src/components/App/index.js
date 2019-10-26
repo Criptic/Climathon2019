@@ -7,17 +7,36 @@ import {
   Card,
   CardContainer,
   Navbar,
+  NavElement,
 } from "./style";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { MessageSquare, ThumbsDown, User } from "react-feather";
 
 export default function App() {
   return (
     <Router>
       <div>
         <Navbar>
-          <Link to="/">Home</Link>
-          <Link to="/complain">Lass es raus</Link>
-          <Link to="/profile">Profil</Link>
+          <Link to="/">
+            <NavElement>
+              <MessageSquare />
+              <span>Melden</span>
+            </NavElement>
+          </Link>
+
+          <Link to="/complain">
+            <NavElement>
+              <ThumbsDown />
+              <span>Lass es raus</span>
+            </NavElement>
+          </Link>
+
+          <Link to="/profile">
+            <NavElement>
+              <User />
+              <span>Profil</span>
+            </NavElement>
+          </Link>
         </Navbar>
 
         {/* A <Switch> looks through its children <Route>s and
