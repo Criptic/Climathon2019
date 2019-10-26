@@ -48,7 +48,7 @@
       "workerId": "7"
     },
     "5": {
-      "complaint": "Heizung defekt",
+      "complaint": "Heizung klappert",
       "customerId": "5",
       "incidentCategory": "1",
       "status": "2",
@@ -78,7 +78,7 @@
       "workerId": "5"
     },
     "7": {
-      "complaint": "Heizung defekt",
+      "complaint": "Heizung kaputt",
       "customerId": "7",
       "incidentCategory": "1",
       "status": "2",
@@ -93,7 +93,7 @@
       "workerId": "5"
     },
     "8": {
-      "complaint": "Heizung defekt",
+      "complaint": "Heizung zu heiß",
       "customerId": "8",
       "incidentCategory": "1",
       "status": "2",
@@ -143,6 +143,26 @@
       "timeSubmitted": 1572048136,
       "vehicleId": "1",
       "workerId": "5"
+    },
+    "12": {
+      "complaint": "Sitze verschmutzt",
+      "customerId": "1",
+      "incidentCategory": "2",
+      "status": "2",
+      "timeSubmitted": 1569455266,
+      "timeResolved": 1572055936,
+      "vehicleId": "2",
+      "workerId": "4"
+    },
+    "13": {
+      "complaint": "Fahrgastinformation defekt",
+      "customerId": "1",
+      "incidentCategory": "8",
+      "status": "2",
+      "timeSubmitted": 1560005266,
+      "timeResolved": 1560050266,
+      "vehicleId": "2",
+      "workerId": "3"
     }
   },
   "incidentCategory": {
