@@ -2,18 +2,18 @@
   "tickets": {
     "1": {
       "complaint": "Tür defekt",
-      "customerId": 1,
-      "incidentCategory": 1,
-      "status": 1,
+      "customerId": "1",
+      "incidentCategory": "1",
+      "status": "1",
       "timeSubmitted": 1569455265,
-      "vehicleId": 2,
-      "workerId": 2
+      "vehicleId": "2",
+      "workerId": "2"
     },
     "2": {
       "complaint": "Heizung defekt",
-      "customerId": 2,
-      "incidentCategory": 1,
-      "status": 2,
+      "customerId": "2",
+      "incidentCategory": "1",
+      "status": "2",
       "tags": {
         "0": "Heizung",
         "1": "Wärmepumpe",
@@ -21,37 +21,37 @@
       },
       "timeResolved": 1549939352,
       "timeSubmitted": 1549926174,
-      "vehicleId": 1,
-      "workerId": 5
+      "vehicleId": "1",
+      "workerId": "5"
     },
     "3": {
       "complaint": "Sitzpolster zerrissen",
-      "customerId": 3,
-      "incidentCategory": 1,
-      "status": 2,
+      "customerId": "3",
+      "incidentCategory": "1",
+      "status": "2",
       "tags": {
         "0": "Sitz",
         "1": "Klappsitz"
       },
       "timeResolved": 1562377357,
       "timeSubmitted": 1562343871,
-      "vehicleId": 3,
-      "workerId": 4
+      "vehicleId": "3",
+      "workerId": "4"
     },
     "4": {
       "complaint": "Bahn randvoll",
-      "customerId": 4,
-      "incidentCategory": 4,
-      "status": 1,
+      "customerId": "4",
+      "incidentCategory": "4",
+      "status": "1",
       "timeSubmitted": 1549094494,
-      "vehicleId": 2,
-      "workerId": 7
+      "vehicleId": "2",
+      "workerId": "7"
     },
     "5": {
-      "complaint": "Heizung defekt",
-      "customerId": 5,
-      "incidentCategory": 1,
-      "status": 2,
+      "complaint": "Heizung klappert",
+      "customerId": "5",
+      "incidentCategory": "1",
+      "status": "2",
       "tags": {
         "0": "Heizung",
         "1": "Wärmetauscher",
@@ -59,14 +59,14 @@
       },
       "timeResolved": 1550447672,
       "timeSubmitted": 1550384737,
-      "vehicleId": 1,
-      "workerId": 5
+      "vehicleId": "1",
+      "workerId": "5"
     },
     "6": {
       "complaint": "Heizung defekt",
-      "customerId": 6,
-      "incidentCategory": 1,
-      "status": 2,
+      "customerId": "6",
+      "incidentCategory": "1",
+      "status": "2",
       "tags": {
         "0": "Heizung",
         "1": "Stromzufuhr",
@@ -74,14 +74,14 @@
       },
       "timeResolved": 1551485554,
       "timeSubmitted": 1551479698,
-      "vehicleId": 1,
-      "workerId": 5
+      "vehicleId": "1",
+      "workerId": "5"
     },
     "7": {
-      "complaint": "Heizung defekt",
-      "customerId": 7,
-      "incidentCategory": 1,
-      "status": 2,
+      "complaint": "Heizung kaputt",
+      "customerId": "7",
+      "incidentCategory": "1",
+      "status": "2",
       "tags": {
         "0": "Heizung",
         "1": "Abluft",
@@ -89,14 +89,14 @@
       },
       "timeResolved": 1552360552,
       "timeSubmitted": 1552350270,
-      "vehicleId": 1,
-      "workerId": 5
+      "vehicleId": "1",
+      "workerId": "5"
     },
     "8": {
-      "complaint": "Heizung defekt",
-      "customerId": 8,
-      "incidentCategory": 1,
-      "status": 2,
+      "complaint": "Heizung zu heiß",
+      "customerId": "8",
+      "incidentCategory": "1",
+      "status": "2",
       "tags": {
         "0": "Heizung",
         "1": "Abluft",
@@ -104,48 +104,68 @@
       },
       "timeResolved": 1553212472,
       "timeSubmitted": 1553194951,
-      "vehicleId": 1,
-      "workerId": 5
+      "vehicleId": "1",
+      "workerId": "5"
     },
     "9": {
       "complaint": "Zwielichtige Personen",
-      "customerId": 9,
-      "incidentCategory": 6,
-      "status": 2,
+      "customerId": "9",
+      "incidentCategory": "6",
+      "status": "2",
       "tags": {
         "0": "Personal",
         "1": "Gefahr"
       },
       "timeResolved": 1571732004,
       "timeSubmitted": 1571702072,
-      "vehicleId": 3,
-      "workerId": 8
+      "vehicleId": "3",
+      "workerId": "8"
     },
     "10": {
       "complaint": "Anschluss wartet nicht",
-      "customerId": 10,
-      "incidentCategory": 5,
-      "status": 2,
+      "customerId": "10",
+      "incidentCategory": "5",
+      "status": "2",
       "tags": {
         "0": "Planung",
         "1": "Anschluss"
       },
       "timeResolved": 1540298064,
       "timeSubmitted": 1540196004,
-      "vehicleId": 1,
-      "workerId": 7
+      "vehicleId": "1",
+      "workerId": "7"
     },
     "11": {
       "complaint": "Licht defekt",
-      "customerId": 11,
-      "incidentCategory": 1,
-      "status": 1,
+      "customerId": "11",
+      "incidentCategory": "1",
+      "status": "1",
       "timeSubmitted": 1572048136,
-      "vehicleId": 1,
-      "workerId": 2
+      "vehicleId": "1",
+      "workerId": "5"
+    },
+    "12": {
+      "complaint": "Tür blockiert",
+      "customerId": "1",
+      "incidentCategory": "1",
+      "status": "2",
+      "timeSubmitted": 1569455266,
+      "timeResolved": 1572055936,
+      "vehicleId": "2",
+      "workerId": "4"
+    },
+    "13": {
+      "complaint": "Fahrgastinformation defekt",
+      "customerId": "1",
+      "incidentCategory": "8",
+      "status": "2",
+      "timeSubmitted": 1560005266,
+      "timeResolved": 1560050266,
+      "vehicleId": "2",
+      "workerId": "3"
     }
   },
-  "incidentCategroy": {
+  "incidentCategory": {
     "1": {
       "incidentText": "Technische Störung"
     },
@@ -218,15 +238,15 @@
   },
   "vehicles": {
     "1": {
-      "modelNumber": 1,
+      "modelNumber": "1",
       "constructionDate": 1531926174
     },
     "2": {
-      "modelNumber": 2,
+      "modelNumber": "2",
       "constructionDate": 1548405265
     },
     "3": {
-      "modelNumber": 3,
+      "modelNumber": "3",
       "constructionDate": 1562157322
     }
   },
