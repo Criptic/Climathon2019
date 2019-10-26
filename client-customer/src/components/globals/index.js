@@ -42,7 +42,7 @@ export const CardTitle = styled.h2`
 export const Card = styled.div`
     background-color: ${theme.bg.default};
     border-radius 12px;
-    padding: 8px;
+    padding: 16px;
 
     ${Shadows.default};
 

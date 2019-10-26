@@ -1,9 +1,17 @@
 import React, { Component } from "react";
 import axios from "axios";
 
+import {
+  NavBlocker,
+  BackButton,
+  Button,
+  Label,
+  Checkbox,
+  ComplainCard,
+} from "./style";
 import { Container } from "../globals";
-
-import Title from "../Title";
+import { Link } from "react-router-dom";
+import { ChevronLeft } from "react-feather";
 
 class Reports extends Component {
   constructor(props) {
@@ -27,34 +35,54 @@ class Reports extends Component {
   render() {
     return (
       <Container>
-        <Title title="tramn by" orange="rnv" />
-        <label for="solvedOnlyCheckbox">
-          Nur gelöste Tickets
-          <input
+        <NavBlocker />
+        <BackButton>
+          <ChevronLeft />
+          <Link to="/">Zurück</Link>
+        </BackButton>
+        <Label for="solvedOnlyCheckbox">
+          Nur gelöste Meldungen
+          <Checkbox
             type="checkbox"
             id="solvedOnlyCheckbox"
             name="solvedOnlyCheckbox"
           />
-        </label>
+        </Label>
         {this.state.tickets ? (
-          <ul>
+          <div>
             {this.state.tickets.map(element => {
               return (
                 // Beschreibung der Elemente in "element" siehe dbStructure
-                <li key={element.timeSubmitted}>{JSON.stringify(element)}</li>
+                <ComplainCard
+                  status={element.status}
+                  key={element.timeSubmitted}
+                >
+                  <h2>{element.complaint}</h2>
+                  <p>
+                    Kategorie:{" "}
+                    <span style={{ fontWeight: "normal" }}>
+                      {element.incidentCategory}
+                    </span>
+                  </p>
+                  {element.status == "1" ? (
+                    <p>Status: offen</p>
+                  ) : (
+                    <p>Status: abgeschlossen</p>
+                  )}
+                </ComplainCard>
               );
             })}
-          </ul>
+          </div>
         ) : (
           ""
         )}
-        <input
-          type="button"
+        <Button
           id="getTicketsButton"
           onClick={this.handleClick}
           name="getTicketsButton"
-          value="Tickets suchen..."
-        />
+        >
+          Meldungen suchen
+        </Button>
       </Container>
     );
   }

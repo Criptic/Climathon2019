@@ -8,11 +8,10 @@ export const ReportCard = styled(Card)`
   flex-direction: row;
   justify-content: space-between;
 
-  padding: 16px;
-
   background-color: #2f3676;
 
   p {
+    width: 200px;
     font-weight: bold;
     color: ${theme.bg.default};
   }
@@ -21,9 +20,9 @@ export const ReportCard = styled(Card)`
     color: ${theme.bg.default};
   }
 `;
-export const Image = styled.img`
+export const Human = styled.img`
   border-radius: 12px;
-  width: 100%;
+  width: 120px;
   height: auto;
 `;
 export const Button = styled.button`
@@ -44,4 +43,25 @@ export const Button = styled.button`
   &:active {
     ${Shadows.active};
   }
+`;
+
+export const NewsCard = styled(Card)`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #89c5cc;
+  h2 {
+    font-size: 18px;
+    color: ${theme.bg.default};
+  }
+  p {
+    font-weight: bold;
+    color: ${theme.bg.default};
+  }
+`;
+
+export const Clock = styled.img`
+  height: 100px;
+  width: 100px;
 `;

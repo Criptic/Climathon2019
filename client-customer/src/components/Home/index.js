@@ -2,11 +2,12 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-import { ReportCard, Image, Button } from "./style";
-import { Container, CardContainer, CardTitle, Card } from "../globals";
+import { ReportCard, Human, Clock, Button, NewsCard } from "./style";
+import { Container, CardContainer, CardTitle } from "../globals";
 import Title from "../Title";
 
 import standing from "../../assets/standing.png";
+import clock from "../../assets/clock.png";
 
 class Home extends Component {
   state = {
@@ -19,7 +20,7 @@ class Home extends Component {
   render() {
     return (
       <Container>
-        <Title title="tramn by" orange="rnv" />
+        <Title title="tramn!" orange=" by rnv" />
         <CardContainer>
           <CardTitle>Störung melden</CardTitle>
           <Link to="/report">
@@ -32,14 +33,23 @@ class Home extends Component {
                 </p>
                 <Button>Go for it!</Button>
               </div>
-              <Image src={standing} />
+              <Human src={standing} />
             </ReportCard>
           </Link>
         </CardContainer>
 
         <CardContainer>
-          <CardTitle>Aktuelle Störung: {this.state.news.title}</CardTitle>
-          <Card>{this.state.news.text}</Card>
+          <CardTitle>Aktuelle Störung</CardTitle>
+          {this.state.news.text ? (
+            <NewsCard>
+              <div>
+                <h2>{this.state.news.title}</h2>
+                <p>{this.state.news.text.substring(20, 90) + "..."}</p>
+                <Button>Mehr lesen</Button>
+              </div>
+              <Clock src={clock} />
+            </NewsCard>
+          ) : null}
         </CardContainer>
       </Container>
     );

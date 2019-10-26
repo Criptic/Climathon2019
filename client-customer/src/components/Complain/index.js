@@ -44,7 +44,7 @@ export default class Complain extends React.Component {
         </p>
         <ComplainCard>
           <Input
-            placeholder="Give it to me"
+            placeholder="Sag's uns..."
             value={this.state.message}
             onChange={this.handleChange}
           />
