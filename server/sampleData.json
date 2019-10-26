@@ -145,9 +145,9 @@
       "workerId": "5"
     },
     "12": {
-      "complaint": "Sitze verschmutzt",
+      "complaint": "Tür blockiert",
       "customerId": "1",
-      "incidentCategory": "2",
+      "incidentCategory": "1",
       "status": "2",
       "timeSubmitted": 1569455266,
       "timeResolved": 1572055936,
