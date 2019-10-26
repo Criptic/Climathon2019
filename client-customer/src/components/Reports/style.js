@@ -57,11 +57,13 @@ export const Checkbox = styled.input`
 `;
 
 export const ComplainCard = styled(Card)`
-background-color: ${props =>
-  props.status == "1" ? theme.brand.alt : "#89c5cc"}
-h2 {
+  background-color: ${props =>
+      props.status == "1" ? theme.brand.alt : "#89c5cc"}
+    h2 {
     font-size: 18px;
   }
   p {
     font-weight: bold;
-´  }`;
+  }
+  margin-bottom: 16px;
+`;

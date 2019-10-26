@@ -92,9 +92,9 @@ class Report extends Component {
         </div>
         <p>
           {this.state.vehicleId ? (
-            <Heading>{`Ausgewählte Tram: ${this.state.vehicleId}`}</Heading>
+            <Heading>{`Ausgewähltes Fahrzeug: ${this.state.vehicleId}`}</Heading>
           ) : (
-            <Heading>Keine Tram erkannt</Heading>
+            <Heading>Kein Fahrzeug erkannt</Heading>
           )}
         </p>
         {this.state.vehicleId ? (
