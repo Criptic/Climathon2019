@@ -19,8 +19,8 @@ export const Row = styled.div`
 `;
 export const Label = styled.label`
   font-size: 18px;
-  line-height: 0;
   margin-left: 8px;
+  white-space: pre-wrap;
 `;
 export const CheckboxContainer = styled.div`
   display: flex;

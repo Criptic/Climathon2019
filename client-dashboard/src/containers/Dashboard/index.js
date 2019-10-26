@@ -1,5 +1,12 @@
-import React from "react";
+import React, { Component } from "react";
+import axios from "axios";
+import { Info } from "react-feather";
+
 import {
+  Checkbox,
+  Row,
+  Label,
+  CheckboxContainer,
   Content,
   Title,
   TitleContainer,
@@ -13,20 +20,40 @@ import { CardTitle, CardContainer, Card } from "../../components/globals";
 import Category from "../../components/Category";
 import Filter from "../../components/Filter";
 
-export default class Dashboard extends React.Component {
+export default class Dashboard extends Component {
   constructor(props) {
     super(props);
-    this.state = { search: "" };
+    this.state = {
+      search: "",
+      workerId: "5",
+      tickets: "",
+      displayType: "flex",
+    };
+    this.handleChecked = this.handleChecked.bind(this);
+  }
+
+  componentDidMount() {
+    axios
+      .get(`/getCurrentWorkerTickets?workerId=${this.state.workerId}`)
+      .then(res => {
+        const tickets = res.data.filter(el => el !== null);
+        this.setState({ tickets });
+        console.log(this.state.tickets);
+      });
   }
 
   handleSearchClick(event) {
     event.preventDefault();
-    alert("Test");
   }
 
   handleSearchChange(event) {
     event.preventDefault();
     this.setState({ search: event.target.value });
+  }
+
+  handleChecked(event) {
+    this.setState({ displayType: "none" });
+    axios.get("/updateTicket");
   }
 
   render() {
@@ -47,11 +74,44 @@ export default class Dashboard extends React.Component {
         <HorizontalContainer>
           <CardContainer>
             <CardTitle>Offene Meldungen</CardTitle>
-            <Card style={{ width: "350px" }}>
-              <ListItem border label="Tür Defekt" />
-              <ListItem border label="Tür Defekt - Senorik" />
-              <ListItem label="Glasbruch - Fahrer" />
-              <div style={{ marginBottom: "8px" }}></div>
+            <Card style={{ width: "350px", display: this.state.displayType }}>
+              {this.state.tickets
+                ? this.state.tickets.map(ticket => {
+                    return (
+                      <div key={ticket.timeSubmitted}>
+                        {this.state.tickets[this.state.tickets.length - 1]
+                          .timeSubmitted !== ticket.timeSubmitted ? (
+                          <>
+                            <ListItem
+                              border
+                              key={ticket.timeSubmitted}
+                              label={ticket.complaint}
+                              vehicleId={ticket.vehicleId}
+                            />
+                            <div style={{ marginBottom: "8px" }}></div>
+                          </>
+                        ) : (
+                          <Row>
+                            <CheckboxContainer>
+                              <Checkbox
+                                type="checkbox"
+                                onChange={this.handleChecked}
+                              />
+                              <Label>{`${ticket.complaint} - Fahrzeug-ID: ${ticket.vehicleId}`}</Label>
+                            </CheckboxContainer>
+                            <div title={`Fahrzeug Nr. ` + ticket.vehicleId}>
+                              <Info
+                                size={20}
+                                color={"#5C6166"}
+                                style={{ marginRight: "8px" }}
+                              />
+                            </div>
+                          </Row>
+                        )}
+                      </div>
+                    );
+                  })
+                : ""}
             </Card>
           </CardContainer>
           <CardContainer>

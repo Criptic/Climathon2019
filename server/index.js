@@ -37,6 +37,30 @@ app.get("/getTickets", async (req, res) => {
   res.send(await getTicketsByCustomerId(req.query.customerId));
 });
 
+app.get("/getCurrentWorkerTickets", async (req, res) => {
+  res.send(await getCurrentWorkerTickets(req.query.workerId));
+});
+
+app.get("/updateTicket", (req, res) => {
+  updateTicket("11", {
+    complaint: "Licht defekt",
+    customerId: "11",
+    incidentCategory: "1",
+    status: "2",
+    timeSubmitted: 1572048136,
+    timeResolved: Math.floor(new Date().getTime() / 1000),
+    vehicleId: "42096",
+    workerId: "5",
+  });
+  sendNotificationToX(
+    customerToken,
+    { test: "test" },
+    "Licht defekt behoben",
+    "Vielen Dank für deinen Hinweis!"
+  );
+  res.send("success");
+});
+
 app.get("/getNews", async (req, res) => {
   const news = axios
     .get(
@@ -58,6 +82,32 @@ app.get("/getNews", async (req, res) => {
 });
 app.listen(5000);
 
+async function getCurrentWorkerTickets(workerId) {
+  const criteria = {
+    type: "workerId",
+    value: workerId,
+  };
+
+  let tickets = await retrieveHistory(criteria);
+
+  const strippedTickets = Promise.all(
+    tickets.map(async ticket => {
+      delete ticket.customerId;
+      ticket.incidentCategory = await getOneValueById(
+        "incidentCategory",
+        1
+      ).then(val => {
+        return val.val().incidentText;
+      });
+      if (ticket.status === "1") {
+        return ticket;
+      }
+    })
+  );
+
+  return strippedTickets;
+}
+
 async function getTicketsByCustomerId(customerId) {
   const criteria = {
     type: "customerId",
@@ -65,7 +115,6 @@ async function getTicketsByCustomerId(customerId) {
   };
 
   let tickets = await retrieveHistory(criteria);
-  // console.log("tickets", tickets);
 
   const strippedTickets = Promise.all(
     tickets.map(async ticket => {
@@ -125,9 +174,13 @@ async function updateTicket(ticketId, ticket) {
  * @param {String} recipientToken token of the device the receive notification
  * @param {Object} data payload to be sent to device
  */
-async function sendNotificationToX(recipientToken, data) {
+async function sendNotificationToX(recipientToken, data, title, body) {
   const message = {
     data,
+    notification: {
+      title,
+      body,
+    },
     token: recipientToken,
   };
 
@@ -199,17 +252,18 @@ async function retrieveHistory(criteria) {
 // const criteria = { type: "tags", value: "Heizung" };
 // retrieveHistory(criteria);
 
-// const customerToken =
-//   "eC-lJf1iJ2qB15yA8IVBdQ:APA91bGzw6KayKEyPRJNoKTxi_20ZN59R_bSX-nZxEgRNOj3Yc_cVx6QdBKM46B5znsOSprGdjJv252d8A9xZx-YwaIwsPh-HD6ggs1cgi4D60ADmo5iDKPowKfweLPFz20PzxAjkWVP";
-// const customerData = {
-//   customerId: "1",
-//   ticketId: "1",
-//   timeSubmitted: "1",
-//   timeResolved: "1",
-// };
+const customerToken =
+  "eC-lJf1iJ2qB15yA8IVBdQ:APA91bGzw6KayKEyPRJNoKTxi_20ZN59R_bSX-nZxEgRNOj3Yc_cVx6QdBKM46B5znsOSprGdjJv252d8A9xZx-YwaIwsPh-HD6ggs1cgi4D60ADmo5iDKPowKfweLPFz20PzxAjkWVP";
+/*
+  const customerData = {
+  customerId: "1",
+  ticketId: "1",
+  timeSubmitted: "1",
+  timeResolved: "1",
+};
 
-// sendNotificationToX(customerToken, customerData);
-
+sendNotificationToX(customerToken, customerData);
+*/
 /*
 console.log(getOneValueById("tickets", "1"));
 const ticketId = createTicket(1, 1, "David Test", 1);
