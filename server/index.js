@@ -2,8 +2,16 @@ const express = require("express");
 const firebase = require("firebase");
 const cors = require("cors");
 const bodyParser = require("body-parser");
+const admin = require("firebase-admin");
 
 const keys = require("./keys");
+
+const serviceAccount = require("./serviceAccountKey.json");
+
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+  databaseURL: "https://climathon2019-35374.firebaseio.com",
+});
 
 // Initialize Firebase
 firebase.initializeApp(keys.firebaseConfig);
@@ -57,7 +65,33 @@ async function sendNotificationCustomer(
   ticketId,
   timeSubmitted,
   timeResolved
-) {}
+) {
+  var registrationToken =
+    "eC-lJf1iJ2qB15yA8IVBdQ:APA91bGzw6KayKEyPRJNoKTxi_20ZN59R_bSX-nZxEgRNOj3Yc_cVx6QdBKM46B5znsOSprGdjJv252d8A9xZx-YwaIwsPh-HD6ggs1cgi4D60ADmo5iDKPowKfweLPFz20PzxAjkWVP";
+
+  var message = {
+    data: {
+      score: "850",
+      time: "2:45",
+    },
+    token: registrationToken,
+  };
+
+  // Send a message to the device corresponding to the provided
+  // registration token.
+  admin
+    .messaging()
+    .send(message)
+    .then(response => {
+      // Response is a message ID string.
+      console.log("Successfully sent message:", response);
+    })
+    .catch(error => {
+      console.log("Error sending message:", error);
+    });
+}
+
+sendNotificationCustomer(1, 1, 1, 1);
 
 /*
 console.log(getOneValueById("tickets", "1"));
