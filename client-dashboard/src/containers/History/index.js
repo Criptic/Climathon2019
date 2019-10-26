@@ -1,9 +1,16 @@
 import React from "react";
-import { Content, Title, TitleContainer, HorizontalContainer } from "./style";
+import {
+  Content,
+  Title,
+  TitleContainer,
+  HorizontalContainer,
+  Graph,
+} from "./style";
 import { BarChart2 } from "react-feather";
 import Search from "../../components/Search";
 import ListItem from "../../components/ListItem";
 import { CardTitle, CardContainer, Card } from "../../components/globals";
+import graph from "../../assets/graph.png";
 
 export default function History() {
   return (
@@ -19,13 +26,15 @@ export default function History() {
           <Card style={{ width: "350px" }}>
             <ListItem checked border label="Tür Defekt - Sensorik" />
             <ListItem checked border label="Tür Defekt - Glasbruch" />
+            <ListItem checked border label="Tür Defekt - Glasbruch" />
+            <ListItem checked border label="Tür Defekt - Glasbruch" />
             <ListItem checked label="Bremse quietscht" />
             <div style={{ marginBottom: "8px" }}></div>
           </Card>
         </CardContainer>
         <CardContainer>
           <CardTitle>Kategorien</CardTitle>
-          <Card>Hier lebt ein Graf</Card>
+          <Graph src={graph} />
         </CardContainer>
       </HorizontalContainer>
     </Content>

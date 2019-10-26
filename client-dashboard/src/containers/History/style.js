@@ -25,3 +25,8 @@ export const HorizontalContainer = styled.div`
   justify-content: space-between;
   width: 800px;
 `;
+
+export const Graph = styled.img`
+  width: 350px;
+  height: auto;
+`;
