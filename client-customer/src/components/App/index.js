@@ -6,12 +6,13 @@ import {
   Route,
   NavLink,
 } from "react-router-dom";
-import { MessageSquare, ThumbsDown, User } from "react-feather";
+import { Home as HomeIcon, ThumbsDown, User } from "react-feather";
 
 import Profile from "../Profile";
 import Home from "../Home";
 import Complain from "../Complain";
 import Report from "../Report";
+import Reports from "../Reports";
 import { messaging } from "../../init-fcm";
 
 export default class App extends Component {
@@ -40,8 +41,8 @@ export default class App extends Component {
               to="/"
               activeClassName="selected"
             >
-              <MessageSquare />
-              <span>Melden</span>
+              <HomeIcon />
+              <span>Home</span>
             </NavLink>
 
             <NavLink
@@ -72,8 +73,11 @@ export default class App extends Component {
             <Route path="/profile">
               <Profile />
             </Route>
-            <Route path="/report">
+            <Route exact path="/report">
               <Report />
+            </Route>
+            <Route exact path="/reports">
+              <Reports />
             </Route>
             <Route path="/">
               <Home />

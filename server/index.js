@@ -22,11 +22,51 @@ const app = express();
 app.use(cors());
 app.use(bodyParser());
 
+app.get("/createTicket", (req, res) => {
+  createTicket(
+    req.query.vehicleId,
+    req.query.incidentCategory,
+    req.query.complaint,
+    req.query.customerId
+  );
+  console.log(req.query);
+});
+app.get("/getTickets", async (req, res) => {
+  res.send(await getTicketsByCustomerId(req.query.customerId));
+});
+app.listen(5000);
+
+async function getTicketsByCustomerId(customerId) {
+  const criteria = {
+    type: "customerId",
+    value: customerId,
+  };
+
+  let tickets = await retrieveHistory(criteria);
+  // console.log("tickets", tickets);
+
+  const strippedTickets = Promise.all(
+    tickets.map(async ticket => {
+      delete ticket.workerId;
+      delete ticket.vehicleId;
+      ticket.incidentCategory = await getOneValueById(
+        "incidentCategory",
+        1
+      ).then(val => {
+        return val.val().incidentText;
+      });
+      return ticket;
+    })
+  );
+
+  return strippedTickets;
+}
+
 async function getOneValueById(element, elementId) {
-  await db.ref(`/${element}/${elementId}`).once(
+  return await db.ref(`/${element}/${elementId}`).once(
     "value",
     snapshot => {
-      console.log(snapshot.val());
+      // console.log(snapshot.val());
       return snapshot.val();
     },
     err => console.log(err)
@@ -57,8 +97,6 @@ async function createTicket(
 async function updateTicket(ticketId, ticket) {
   await db.ref(`/tickets/${ticketId}`).update(ticket, err => console.log(err));
 }
-
-app.listen(5000);
 
 /**
  *
@@ -136,8 +174,8 @@ async function retrieveHistory(criteria) {
   // console.log("tickets", tickets);
 }
 
-const criteria = { type: "tags", value: "Heizung" };
-retrieveHistory(criteria);
+// const criteria = { type: "tags", value: "Heizung" };
+// retrieveHistory(criteria);
 
 // const customerToken =
 //   "eC-lJf1iJ2qB15yA8IVBdQ:APA91bGzw6KayKEyPRJNoKTxi_20ZN59R_bSX-nZxEgRNOj3Yc_cVx6QdBKM46B5znsOSprGdjJv252d8A9xZx-YwaIwsPh-HD6ggs1cgi4D60ADmo5iDKPowKfweLPFz20PzxAjkWVP";

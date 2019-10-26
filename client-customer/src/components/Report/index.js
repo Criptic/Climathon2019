@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import QrReader from "react-qr-reader";
-import { Container, CardContainer, Card, CardTitle } from "../globals";
+import axios from "axios";
+
+import { Container } from "../globals";
 
 import Title from "../Title";
 
@@ -13,6 +15,7 @@ class Report extends Component {
       qrReaderStyle: { width: "100%" },
       incidentCategory: 1,
       complaint: "",
+      customerId: 1,
     };
 
     this.handleScan = this.handleScan.bind(this);
@@ -47,6 +50,11 @@ class Report extends Component {
     ) {
       alert("Füll aus!");
     } else {
+      axios
+        .get(
+          `/createTicket?vehicleId=${this.state.vehicleId}&incidentCategory=${this.state.incidentCategory}&complaint=${this.state.complaint}&customerId=${this.state.customerId}`
+        )
+        .then(res => console.log(res));
     }
   };
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, CardContainer, Card, CardTitle } from "../globals";
+import { Container, CardContainer, CardTitle } from "../globals";
 
 import Title from "../Title";
 import { Link } from "react-router-dom";
@@ -13,10 +13,10 @@ export default function Home() {
           <Link to="/report">Störung melden</Link>
         </CardTitle>
       </CardContainer>
-
       <CardContainer>
-        <CardTitle>Sonstige Meldungen</CardTitle>
-        <Card>Dude... we need to fill this place!</Card>
+        <CardTitle>
+          <Link to="/reports">Letzte Störungen...</Link>
+        </CardTitle>
       </CardContainer>
     </Container>
   );
