@@ -4,6 +4,7 @@ import { Inbox } from "react-feather";
 import Search from "../../components/Search";
 import ListItem from "../../components/ListItem";
 import { CardTitle, CardContainer, Card } from "../../components/globals";
+import Category from "../../components/Category";
 
 export default function Dashboard() {
   return (
@@ -25,7 +26,10 @@ export default function Dashboard() {
         </CardContainer>
         <CardContainer>
           <CardTitle>Kategorien</CardTitle>
-          <Card style={{ width: "350px" }}>Hier müssen Kategorien hin</Card>
+          <Category text="Mechanik-Tür" count="3" />
+          <Category text="Kundenmanagement" count="2" />
+          <Category text="Sauberkeit" count="2" />
+          <Category text="Mechanik-Klima" count="1" />
         </CardContainer>
       </HorizontalContainer>
     </Content>
