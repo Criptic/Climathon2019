@@ -18,3 +18,10 @@ export const Content = styled(Container)`
   max-width: 800px;
   justify-content: center;
 `;
+
+export const HorizontalContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 800px;
+`;
