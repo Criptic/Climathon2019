@@ -1,20 +1,19 @@
 import React, { Component } from "react";
+import { Navbar } from "./style";
 import {
-  Container,
-  Title,
-  Orange,
-  CardTitle,
-  Card,
-  CardContainer,
-  Navbar,
-  NavElement,
-} from "./style";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  NavLink,
+} from "react-router-dom";
 import { MessageSquare, ThumbsDown, User } from "react-feather";
 
+import Profile from "../Profile";
+import Home from "../Home";
+import Complain from "../Complain";
 import { messaging } from "../../init-fcm";
 
-class App extends Component {
+export default class App extends Component {
   async componentDidMount() {
     Notification.requestPermission()
       .then(async function() {
@@ -29,32 +28,38 @@ class App extends Component {
       console.log(message)
     );
   }
-
   render() {
     return (
       <Router>
         <div>
           <Navbar>
-            <Link to="/">
-              <NavElement>
-                <MessageSquare />
-                <span>Melden</span>
-              </NavElement>
-            </Link>
+            <NavLink
+              exact
+              className="navElement"
+              to="/"
+              activeClassName="selected"
+            >
+              <MessageSquare />
+              <span>Melden</span>
+            </NavLink>
 
-            <Link to="/complain">
-              <NavElement>
-                <ThumbsDown />
-                <span>Lass es raus</span>
-              </NavElement>
-            </Link>
+            <NavLink
+              className="navElement"
+              to="/complain"
+              activeClassName="selected"
+            >
+              <ThumbsDown />
+              <span>Lass es raus</span>
+            </NavLink>
 
-            <Link to="/profile">
-              <NavElement>
-                <User />
-                <span>Profil</span>
-              </NavElement>
-            </Link>
+            <NavLink
+              className="navElement"
+              to="/profile"
+              activeClassName="selected"
+            >
+              <User />
+              <span>Profil</span>
+            </NavLink>
           </Navbar>
 
           {/* A <Switch> looks through its children <Route>s and
@@ -64,7 +69,7 @@ class App extends Component {
               <Complain />
             </Route>
             <Route path="/profile">
-              <Profil />
+              <Profile />
             </Route>
             <Route path="/">
               <Home />
@@ -75,41 +80,3 @@ class App extends Component {
     );
   }
 }
-
-function Home() {
-  return (
-    <Container>
-      <Title>
-        tramn by <Orange>rnv</Orange>
-      </Title>
-
-      <CardContainer>
-        <CardTitle>Technischer Defekt</CardTitle>
-        <Card>Dude... we need to fill this place!</Card>
-      </CardContainer>
-
-      <CardContainer>
-        <CardTitle>Sonstige Meldungen</CardTitle>
-        <Card>Dude... we need to fill this place!</Card>
-      </CardContainer>
-    </Container>
-  );
-}
-
-function Complain() {
-  return (
-    <Container>
-      <h2>Lass es raus</h2>
-    </Container>
-  );
-}
-
-function Profil() {
-  return (
-    <Container>
-      <h2>Profil & Einstellungen</h2>
-    </Container>
-  );
-}
-
-export default App;
