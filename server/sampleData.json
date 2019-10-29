@@ -153,16 +153,6 @@
       "timeResolved": 1572055936,
       "vehicleId": "2",
       "workerId": "4"
-    },
-    "13": {
-      "complaint": "Fahrgastinformation defekt",
-      "customerId": "1",
-      "incidentCategory": "8",
-      "status": "2",
-      "timeSubmitted": 1560005266,
-      "timeResolved": 1560050266,
-      "vehicleId": "2",
-      "workerId": "3"
     }
   },
   "incidentCategory": {
