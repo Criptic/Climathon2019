@@ -30,7 +30,7 @@ export default function History() {
         <CardContainer>
           <CardTitle>Bearbeitete Meldungen</CardTitle>
           <Card style={{ width: "350px" }}>
-            <ListItem checked border label="Licht defekt - Fahrzeug: 42069" />
+            <ListItem border label="Licht defekt - Fahrzeug: 42069" />
             <ListItem checked border label="Tür Defekt - Fahrzeug: 42069" />
             <ListItem
               checked

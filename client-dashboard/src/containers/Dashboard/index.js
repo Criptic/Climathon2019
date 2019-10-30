@@ -102,7 +102,7 @@ export default class Dashboard extends Component {
                                 type="checkbox"
                                 onChange={this.handleChecked}
                               />
-                              <Label>{`${ticket.complaint}-Fahrzeug: ${ticket.vehicleId}`}</Label>
+                              <Label>{`${ticket.complaint} - Fahrzeug: ${ticket.vehicleId}`}</Label>
                             </CheckboxContainer>
                             <Info
                               size={20}
